@@ -1,0 +1,148 @@
+<html>
+
+<head>
+<title>Wanem interface help page</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> </link>
+</head>
+
+<body bgcolor="white">
+
+<p align="center"><font size="6"><b>WANem Interface Help</b></font></p>
+<b><font size="5" color=#8476352>Introduction:</font></b>
+<p>TCS Wanem GUI is a user interface for the tc (traffic control) tool for creating and running various network emulation
+rules on any network interface;including packet delay, packet loss, packet duplication, packet corruption, packet reordering 
+and bandwidth limiting. It also interfaces to the Disconnect tool and WANalyzer tool. The Disconnect tool is used to emulate
+network disconnections and WANalyzer tool is used for Wide Area Network characterization. The interface is split into five
+different sections. These sections are - About, <b>WANalyzer</b>, <b>Basic mode</b>, <b>Advanced mode</b> and Help.
+Where purpose of about and help sections are obvious, in the following we describe WANalyzer and the differences between
+basic and advanced mode of WANem.</p>
+<p><b><font size="4" color=#074874>WANalyzer:</font></b></p>
+<p>
+WANalyzer is  designed for calibrating Wide Area Network Characteristics. The tool can measure available bandwidth, latency,
+loss and jitter of a network in a few seconds given the IP Address of a remote host as an input. On the output window of the
+tool, there is a button for emulating the measured WAN characteristics directly. (For resetting the emulation from
+WANalyzer, one has to go to Basic mode and press 'reset' button.)
+</p>
+<p><b><font size="4" color=#074874>Basic Mode:</font></b></p>
+<p>You can add netem rules to more than one interface at once, but, unlike
+advanced mode, you can not add more than one set of netem rules to a single interface in this mode. The only network characteristics supported in this mode are Bandwidth and Latency.
+If there has already been more than one set of rules added to an interface in advanced mode, then you won't be able to edit those rules while in basic mode and you must either reset all of the rules or go into advanced mode and edit them from there.&nbsp;
+However, you can still edit the rules for other interfaces even if some
+interfaces have more than one set of rules running.</p>
+
+<p><b><font size="4" color=#074874>Advanced Mode:</font></b></p>
+<p>You can use this mode to add more than one set of IP-address-matched WANem rules to a particular interface.  You can only view the rules for the particular interface you
+selected. If you want to have more than one set of WANem rules running on a single interface then they must be unique in some way.  The way
+to make them unique is to give each set of rules different and mutually exclusive IP address matching rules.  This means that you cannot have two rule sets matching the same source address and/or the same destination address and/or port.  If there are rules for source and destination addresses and ports on
+more than one rule set then either the source or destination IP address or application port must be mutually exclusive for them to be valid.</p>
+<p><b><font size="4" color=#074874>Save/Restore:</font></b></p>
+<p>
+Save/Restore option can be used for saving and restoring WANem setting to/from the client. This feature helps one to re-run 
+the same WANem settings in future.
+</p>
+<p>
+<b><font size="4">General notes:</font></b>
+</p>
+
+<p><font size="3">Enter the required values for the network emulation rules in the relevant
+boxes and click the &quot;apply settings&quot; button to run them.&nbsp; Only type numbers and don't add decimal points.&nbsp;</font></p>
+
+
+<p><font size="3">The boxes for each rule must be filled in from the top down<b>.</b>&nbsp;
+Each box below the top one in each section must have the box above filled in.
+e.g. for delay, the delay time box must be filled in before the jitter box, the
+jitter must be filled in before the delay correlation box.</font></p>
+
+<p><font size="3">Most of the boxes are self explanatory but for a detailed explanation
+of the WANem functions, see the <a href="wanemulator_all_about.pdf" target=_blank>WANem Documentation</a>.
+&nbsp;For latest updated WANem Documentation, visit our web page at this link: <a href="http://wanem.sourceforge.net/documentation.html" target=_blank>Latest WANem Documentation</a>.</font></p>
+
+<p><b><font size="3">IP address matching:</font></b></p>
+
+<p>You can make certain WANem rules only apply to packets that are coming from
+and/or going to a certain IP address or block of addresses.&nbsp; The default
+values in the IP source and destination address boxes is &quot;any&quot;&nbsp;
+This means that all packets going out of the interface will have the WANem rules
+applied to them.&nbsp; If you want to specify IP addresses you must type the IP
+address and the subnet into the relevant boxes.&nbsp; e.g. to apply WANem rules
+to packets going to IP address 1.2.3.4 you need to type &quot;<b>1.2.3.4</b>&quot;(without
+the quotes) in the &quot;IP destination addr&quot; box, then type &quot;<b>32</b>&quot;(without
+the quotes) into the &quot;IP destination subnet&quot; box.&nbsp; To apply the
+WANem rules to packets going to IP addresses in the range of 1.2.3.0 - 1.2.3.255
+then you need to type &quot;<b>1.2.3.0</b>&quot;(without the quotes) in the
+&quot;IP destination addr&quot; box, then type &quot;<b>24</b>&quot;(without the
+quotes) into the &quot;IP destination subnet&quot; box.</p>
+
+<p><br>
+<b><font size="4">Buttons:</font></b></p>
+
+
+<p><font size="3"><b>Apply settings:</b> Apply any entered network emulation
+values to all interfaces being displayed.</font></p>
+
+
+<p><font size="3"><b>Reset settings:</b> Removes all network emulation rules
+from all interfaces being displayed.</font></p>
+
+
+<p><font size="3"><b>Refresh settings:</b>  Re-populates the form with the
+currently running network emulation values for all interfaces being shown.</font></p>
+
+
+<p><font size="3"><b>Check current status:</b> Opens a new page that displays
+all network emulation rules running on all displayed interfaces. It also shows the bytes
+and packets sent and the number of packets dropped. </font></p>
+
+
+<p><b>Stop WANem and Start WANem:</b> The &quot;Stop WANem&quot; button will
+remove all currently running WANem rules from all interfaces and store the rules
+in a temporary file.&nbsp; Then when you click the &quot;Start WANem&quot; button the
+WANem rules will be re-applied.&nbsp; This is useful if you want to temporarily
+stop and start many WANem rules without having to re-enter the values each time.
+These buttons will only appear if you have rules running, and only one of the
+buttons appears at once.</p>
+
+
+<p><b>Display commands only</b><b>:</b>&nbsp; If you check this box before you
+click the 'Apply settings' button then the WANem commands will be displayed at
+the top of the page instead of being run in the background.&nbsp; This is useful
+because you can see how the WANem commands are formed and also copy and paste
+them for later use on any machine with WANem.&nbsp; The commands that are
+displayed can only be applied on a machine where you have root privileges.</p>
+
+
+<p><b><font size="4">Advanced mode buttons:</font></b></p>
+
+
+<p><b><font size="3">Add rule set:&nbsp; </font></b>Adds a new empty rule set to the screen.  This new
+rule set must be filled in with valid data and then the apply settings button&nbsp;<br>
+clicked or else it will be ignored and disappear.</p>
+
+
+<p><b><font size="3">Delete last rule set:&nbsp; </font></b>When there is more than one rule set in use for an interface, clicking the delete rule set button will remove&nbsp;<br>
+the last rule set from the screen.  Only after the apply settings button is clicked will the rule set be completely
+removed from the system.<b><font size="3">&nbsp;&nbsp;</font></b></p>
+
+
+<p><br>
+<b><font size="4">Bridges:</font></b></p>
+
+
+<p><font size="3"> Bridging is enabled on experimental basis in this version of  WANem. Setup may not work as expected as it is still in experimental mode.</font></p>
+
+
+<p>&nbsp;</p>
+
+
+<p><font size="4"><b>Software bugs and crashes:</b></font></p>
+
+
+<p><font size="3">If you apply a number of different rules to different
+interfaces, you may experience problems where the network emulation results are
+not as you expected, or you may find that the machine running WANem freezes for
+no apparent reason.&nbsp; The WANem package in Linux is not perfect and bug-free
+software and is still in regular development.&nbsp; As the software matures it will become more stable.</font></p>
+
+</body>
+
+</html>

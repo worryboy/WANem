@@ -1,0 +1,2 @@
+#for wanbridge
+%www-data ALL=NOPASSWD: /sbin/tc, /bin/echo, /bin/mv, /bin/grep, /root/disc_new_port_int/disconnect.sh, /root/disc_new_port_int/check_disco.sh, /root/disc_new_port_int/reset_disc.sh, /usr/sbin/conntrack, /root/wanalyzer/tcs_wanc_menu.sh, /root/wanalyzer/tcs_wanem_main.sh

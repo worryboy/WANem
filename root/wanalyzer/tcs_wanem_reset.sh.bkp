@@ -1,0 +1,4 @@
+#!/bin/bash
+ETH=$1
+#Reset
+tc qdisc del dev $ETH root

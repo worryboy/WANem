@@ -1,0 +1,92 @@
+INTRODUCTION
+Many wide area networks are also unreliable. Some times  unreliablity manifests as network disconnections. 
+Network disconnection manifests itself in the following ways
+1> Packet drops
+2> ICMP error messages
+3> TCP connection resets
+The disconnect feature allows the user to emulate disconnections mentioned in items 2 & 3 about. 
+
+3 types of disconnect rules are supported by the disconnect feature.
+1> IDLE timer disconnection - The most common source of this kind of diconnections are firewalls. When a TCP connection has been idle for more than a preset duration, that connection is reset or disconnected. 
+2> RANDOM disconnection - A random disconnection causes a temporary disconnectivity between any to network nodes or between a client and an application server. This type of disconnection is not related to any particular event. 
+3> RANDOM connection termination - in distributed applications it is not uncommon to see multiple connections between any two network nodes.For example an application server holding a pool of connections with a remote database server. Only one of the connections get randomly axed.
+
+The following attributes hold for most types of disconnects -
+1> MTTF - Mean Time to Failure - In the disconnect feature context this means the average time to the next network disconnection failure since the last occurence of the same failure. It can be further specified in two parts - a low value <MTTF Lo> and a high value <MTTF Hi>. A random value between <MTTF Lo> and <MTTF Hi> is calculated to determine the next MTTF duration.
+
+2> MTTR - Mean Time to Recovery - In the disconnect feature context this means the average time network disconnection failure lasts once it sets in. It can be further specified in two parts - a low value <MTTR Lo> and a high value <MTTR Hi>. A random value between <MTTF Lo> and <MTTF Hi> is calculated to determine the next MTTR duration.
+
+3> Disconnect Type <dtype> - The specific ICMP error or tcp reset message to be returned in response to a packet which has to be rejected because of a disconnect rule in force. <dtype> can be set to any of the following values
+               icmp-net-unreachable
+               icmp-host-unreachable
+               icmp-port-unreachable
+               icmp-proto-unreachable
+               icmp-net-prohibited
+               icmp-host-prohibited or
+               icmp-admin-prohibited
+ 	       tcp-reset
+
+
+The following filters can be applied in combination when specifying any type of disconnect to be emulated. The filter is said to have matched when the packet match a disconnect rule if all the conditions listed below are satisfied by the packet. When a packet matches a disconnect rule it is processed by the disconnect rule, which applies the specified disconnect emulation behavior to a packet.
+ 
+-> Source IP address <srcip> - When specified it means that the given disconnect feature will be applied to a packet whose source IP address matches <srcip>. If "anywhere" is specified as <srcip> the source IP address check is ignored and the disconnect feature applies regardless of where the packet originates from.
+-> Destination IP address <dstip> - When specified it means that the given disconnect feature will be applied to a packet whose destination IP address matches <dstip>. If "anywhere" is specified as <dstip> the destination IP address check is ignored and the disconnect feature applies regardless of where the packet is destined for.
+-> Server Port <port> - When specified a non zero value the filter will match any packet with  any of the following criteria 
+		- the <dstip> as destination IP address and <port> as destination port
+	If <port> is set to zero then this value is ignored.
+-> Interface <iface> - The filter criteria macthes the packets using <iface> as the outgoing <egress> interface.
+
+Pls note that for Idle type disconnection and Random connection termination where the server ip address and port are represented by <dstip> and <port> respectively the connection is affected.
+
+INSTALLATION - 
+1> Copy and install the following tarball packages in the given order
+	-> libnfnetlink-0.0.16.tar
+	-> libnetfilter_conntrack-0.0.31.tar
+	-> conntrack-1.00beta2.tar
+2> Copy the folder "disc_new_port_int" into any location and record it as <loc>.
+
+USAGE
+The input to the program is provided in the form of a file named "input.dsc" in the "disc_new_port_int" folder.
+Each line in this file contains disconnect rules. 
+Please note that all times are specified in seconds.
+
+The format of each disconnect rule is as follows .....
+-> For Idle disconnection 
+IDL <MTTF> <MTTR> <srcip> <dstip> <port> <dtype> <iface>
+	- where MTTF is the time a connection can remain idle before it is disconnected and MTTR is the time for which the disconnect rule is in force.
+
+-> For Random disconnection
+RND <MTTFHi>:<MTTFLo> <MTTRHi>:<MTTRLo> <srcip> <dstip> <port> <dtype> <iface> [B]
+	- B is an Bidirectional specifier. If present then it means that the rule will apply to packets flow in either direction .i.e.
+		- the <dstip> as destination IP address and <port> as destination port and <srcip> as source port
+		- the <dstip> as source IP address and <port> as source port and <srcip> as destination port
+
+	If <srcip> is set to "anywhere" then <srcip> check is not made. Same for <dstip>.
+	If <port> is set to 0 then <srcip> check is not made. 
+
+		
+	- pls see above for an explanation of other parameters
+
+-> For Random Connection Termination
+RDCONN <MTTFHi>:<MTTFLo> <MTTRHi>:<MTTRLo> <srcip> <dstip> <port> <dtype> <iface> 
+
+	- pls see above for an explanation of other parameters
+
+Once the input.dsc file is ready run the following commands to put the disconnect rules to force.
+1> start the bash shell
+2> cd to the "disc_new_port_int" directory
+3> run the command "./reset_disc.sh `pwd` <iface>". e.g "./reset_disc.sh `pwd` eth0"
+	This command must be run as many times as the unique number of interfaces specified in the input.dsc file by replacing <iface> by the specific interface name.
+4> run the command "./disconnect.sh `pwd`"
+
+OPERATING SYSTEM SUPPORTED
+LINUX FEDORA Core 6
+KNOPPIX VER 5.1
+Any Linux distribution with kernel version 2.6.18.1 or higher
+
+SAMPLE INPUT FILE input.dsc
+IDL 12 24 192.168.140.3 192.168.140.12 22 icmp-net-unreachable eth0 
+RND 2:5 3:4 192.168.140.3 192.168.140.12 22 icmp-host-prohibited eth0 B
+RDCONN 2:7 5:6 192.168.140.3 192.168.140.12 22 icmp-host-unreachable eth0 
+RND 5:9 10:11 192.168.140.15 anywhere 80 icmp-net-unreachable eth0 
+

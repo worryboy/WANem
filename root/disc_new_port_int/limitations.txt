@@ -1,0 +1,8 @@
+Disconnection status checks kicks every 1 second.
+The timing may not be very accurate as it does not take into account the time taken for the status checks.
+The error in timing is expected to be 1 second every 1000 seconds.
+
+For Idle connection termination and Random connection termination currently only one direction of the connetion is blocked.
+This is being worked upon to include both directions. However the current status may be considered good enough to bring out most application anomalies.
+
+Testing has been done for one interface only. But it can work on multiple interfaces also.

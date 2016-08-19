@@ -1,0 +1,22 @@
+=========================================
+WANem v3.0
+==========================================
+Copyright 2009 Tata Consultancy Services
+
+WANem is an open source Wide Area Network emulator.
+WANem is distributed under GNU GPL v2
+
+Authors
+-------
+Manoj Nambiar 		m.nambiar@tcs.com
+Hemanta Kumar Kalita	hemanta91@yahoo.co.in
+Debadatta Mishra 	debiskms@gmail.com	
+Shirish Rane		shirish.rane@tcs.com
+Pravin Pardeshi		pravin.pardeshi@tcs.com
+
+
+Website: http://wanem.sourceforge.net
+
+For any support related to WANem  pls post a question @ https://sourceforge.net/forum/forum.php?forum_id=725629
+
+Thank You

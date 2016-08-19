@@ -1,0 +1,24 @@
+body {
+    color:#888888;
+    background-color:#FFFFFF;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: Verdana, Vera, Helvetica, Arial, Sans Serif;
+    font-size: 8pt;
+}
+
+p {
+    color:#000;
+    font:10pt/11pt;
+    font-family: Verdana, Vera, Helvetica, Arial, Sans Serif;
+}
+
+td {
+    color:#000;
+    font:6pt/8pt;
+    font-family: Times, Serif;
+}
+
+* {
+    font:10pt/11pt;
+}

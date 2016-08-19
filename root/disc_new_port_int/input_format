@@ -1,0 +1,3 @@
+IDL <idle_duration> <disc_duration> <ip1|anywhere> <ip2|anywhere> <reject-reason>
+RAND [MTTF_lower_bound:MTTF_high_bound] [MTTR_lower_bound:MTTR_upper_bound] <source ip|anywhere> <destination ip|anywhere> <reject-reason>
+RDCONN [MTTF_lower_bound:MTTF_high_bound] [MTTR_lower_bound:MTTR_upper_bound] <ip1|anywhere> <ip2|anywhere> <reject-reason>

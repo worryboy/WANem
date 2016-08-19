@@ -1,0 +1,4 @@
+#!/bin/bash
+#Reset
+sudo /sbin/tc qdisc del dev eth0 root
+

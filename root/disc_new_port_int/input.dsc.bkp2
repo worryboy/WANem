@@ -1,0 +1,4 @@
+IDL 12 24 192.168.140.3 192.168.140.12 22 icmp-net-unreachable eth0 
+RND 2:5 3:4 192.168.140.3 192.168.140.12 22 icmp-host-prohibited eth0 B
+RDCONN 2:7 5:6 192.168.140.3 192.168.140.12 22 icmp-host-unreachable eth0 
+RND 5:9 10:11 192.168.140.15 anywhere 80 icmp-net-unreachable eth0 

@@ -1,0 +1,3 @@
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination         
+1    REJECT     all  --  192.168.140.161      192.168.140.155     reject-with icmp-net-unreachable 

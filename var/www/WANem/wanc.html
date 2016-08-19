@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>TCS WANALYSER v 1.2</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> </link>
+</head>
+<script language="JavaScript">
+function IsNumeric(sText) {
+
+	var ValidChars = "0123456789";
+   	var IsNumber=true;
+   	var C;
+ 
+   	for (j = 0; j < sText.length && IsNumber == true; j++) {
+ 
+      		C = sText.charAt(j); 
+      		if (ValidChars.indexOf(C) == -1) {
+
+			IsNumber = false;
+         	}
+      	}
+   	return IsNumber;
+}
+
+function ValidateForm(obj) {
+
+	var ip=document.input_ip.pc.value;
+        var leftValue=((screen.width/2) - 190);
+	var topValue=((screen.height/2) - 175);
+	var tar="result.php?pc="+ip;
+	
+	if(ip == "") {
+             alert('Enter IP Address');
+             document.input_ip.pc.select(); 
+             return false;
+	}
+
+	var arr=ip.split(".");
+
+	len=arr.length;
+
+	for(i=0;i<len;i++) {
+
+		if (IsNumeric(arr[i]) == false)
+                    break;
+	}
+
+	if (i != 4) {
+
+		alert('Invalid IP Address');
+               	document.input_ip.pc.select();
+               	return false;
+	}
+        alert('WAN measurement will start now.\n Please WAIT.');
+	
+        window.open(tar,'mywindow','width=380, height=330, status=yes, top='+topValue+', left='+leftValue);
+        return true;
+}
+
+</script>
+
+<body bgcolor="white" onload="document.input_ip.pc.focus()">
+
+<center><b>
+<br>
+<form name="input_ip" method="post" action="wanc.html" onSubmit= "return ValidateForm(this)";>  
+Enter Remote Host's IP Address <input name=pc>
+<input type = "button" name = "submit" value = "Start WAN Characterization" onClick= "return ValidateForm(this)";>
+</form>
+</b></center>
+
+</body>
+
+</html>
+

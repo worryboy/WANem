@@ -1,0 +1,41 @@
+
+***************************************************************
+			PHPnetemGUI
+***************************************************************
+	Copyright 2005 British Telecommunications plc
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public 
+License along with this program; if not, write to the Free 
+Software Foundation, Inc. 59 Temple Place - Suite 330, Boston, 
+MA 02111-1307, USA.
+ 
+***************************************************************
+			TCS WANem 
+***************************************************************
+	Copyright 2007 Tata Consultancy Services Ltd
+
+WANem is a WAN emulation tool conceptualized and developed by
+TCS Innovation Labs - Performance Engg. 
+
+We thank the open source community as we have taken inspiration 
+from the Netem, the open source network emulator. 
+
+This program is a modified version of PHPnetem GUI developed 
+by British Telecom and new features are added & the GUI has been
+expanded. The modified portion of the code is copyrighted by 
+TCS and redistributed under GNU General Public License version 2. 
+
+The original PHPNetemGUI version 0.9 code can be found in the 
+WANem CD in the folder /root/phpnetemgui0.9.
+
+***************************************************************
