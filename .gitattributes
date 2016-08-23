@@ -1,0 +1,4 @@
+* text=auto
+*.php diff=php
+*.pl diff=perl
+

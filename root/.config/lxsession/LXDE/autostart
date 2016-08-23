@@ -1,0 +1,7 @@
+@lxpanel --profile LXDE
+@pcmanfm --desktop --profile LXDE
+@xscreensaver -no-splash
+@iceweasel
+@lxterminal --command "./wanem_init.sh"
+#@lxterminal --command "htop"
+@./nmAppletStart.sh
