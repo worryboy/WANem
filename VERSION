@@ -1,0 +1,13 @@
+Upstream baseline version: WANem Beta 3.0.3
+Repository baseline documentation date: 2026-04-25
+Imported source snapshot date visible in git history: 2016-08-23
+Current repository branch: master
+
+Source references:
+- Top-level historical mirror README preserved at docs/upstream/README.github-mirror-2016.md
+- Original project URL: http://wanem.sourceforge.net/
+- GitHub reference repository: https://github.com/worryboy/WANem
+
+Notes:
+- In-tree UI and about pages still contain older "WANem v3.0" labels.
+- The Beta 3.0.3 identification is based primarily on the preserved top-level README note and matching git history date.
