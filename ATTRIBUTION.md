@@ -34,6 +34,8 @@ New files added in this cleanup phase document provenance, licensing, repository
 
 Any future maintainer changes should be recorded separately from the original WANem authorship and should preserve GPLv2 obligations and attribution context.
 
+Historical WANem PDF documents were used as source material for the maintained Markdown documentation in `docs/`. Those PDFs are treated as historical inputs and provenance references only; this repository does not claim ownership of the original WANem documentation text.
+
 ## License Compliance Notes
 
 - The GPLv2 license text is included in `LICENSE`.

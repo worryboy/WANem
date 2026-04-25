@@ -20,4 +20,6 @@ These upstream notes are preserved as evidence and are not rewritten here as a v
 - Added `VERSION` to record the imported baseline version and source references.
 - Rewrote the top-level `README.md` to describe the repository factually as an imported baseline.
 - Preserved the original top-level mirror README text at `docs/upstream/README.github-mirror-2016.md`.
-
+- Added version-neutral Markdown documentation under `docs/` based on historical WANem upstream documents and verified source-tree behavior.
+- Added provenance notes, compatibility notes, environment assumptions, and legacy dependency notes.
+- Kept maintained documentation in Markdown form rather than retaining temporary PDF downloads as project documentation.

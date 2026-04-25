@@ -62,6 +62,10 @@ Original WANem authorship and attribution notices are retained in the source tre
 
 This repository does not claim ownership of the original WANem code. New repository-maintainer documentation added here is limited to baseline curation and traceability.
 
+## Documentation
+
+Maintained repository documentation now lives under [docs/README.md](docs/README.md). The `docs/files/` directory contains version-neutral Markdown documentation for the current local baseline, while historical WANem PDFs are treated only as source material and provenance inputs.
+
 ## License Compliance Notes
 
 - The GPLv2 license text is included in this repository.
