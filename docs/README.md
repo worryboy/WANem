@@ -17,6 +17,9 @@ The current documentation set is version-neutral by design. Historical WANem PDF
 ## Analysis Notes
 
 - [Environment assumptions](analysis/environment-assumptions.md)
+- [Provenance audit](analysis/provenance-audit.md)
+- [Runtime assumptions audit](analysis/runtime-assumptions-audit.md)
+- [Modernization backlog](analysis/modernization-backlog.md)
 
 ## Notes
 
