@@ -14,6 +14,7 @@ These upstream notes are preserved as evidence and are not rewritten here as a v
 
 ### 2026-04-26
 
+- Added integration candidate review for SourceForge 2022 DockerFiles payload differences.
 - Analyzed SourceForge 2022 Docker-related WANem artifacts and documented deployment strategy.
 - Added runtime command and hard-coded path inventory.
 - Added provenance audit, runtime assumptions audit, and modernization backlog.
