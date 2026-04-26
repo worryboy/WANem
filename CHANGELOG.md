@@ -14,25 +14,44 @@ These upstream notes are preserved as evidence and are not rewritten here as a v
 
 ### 2026-04-26
 
+#### Code compatibility
+
 - Applied mechanical PHP compatibility cleanup for short tags and static array-key quoting.
-- Added integration candidate review for SourceForge 2022 DockerFiles payload differences.
-- Analyzed SourceForge 2022 Docker-related WANem artifacts and documented deployment strategy.
-- Added runtime command and hard-coded path inventory.
-- Added provenance audit, runtime assumptions audit, and modernization backlog.
+
+#### Version provenance
+
 - Clarified in audit documentation that WANem 3.0.3 is a local repository version derived from the WANem Beta 3.0.2 baseline, unless later upstream evidence proves otherwise.
 - Corrected version provenance wording across maintained documentation.
 - Clarified that the upstream/source baseline appears to be WANem Beta 3.0.2.
 - Clarified that WANem 3.0.3 is this repository's local maintenance version derived from the 3.0.2 baseline.
 - Removed maintained-documentation wording that implied an official upstream WANem 3.0.3 release.
 
+#### Documentation and audits
+
+- Added integration candidate review for SourceForge 2022 DockerFiles payload differences.
+- Analyzed SourceForge 2022 Docker-related WANem artifacts and documented deployment strategy.
+- Added runtime command and hard-coded path inventory.
+- Added provenance audit, runtime assumptions audit, and modernization backlog.
+
 ### 2026-04-25
 
-- Documented the repository baseline prior to functional changes.
-- Added a top-level `LICENSE` file with the GNU GPL v2 text.
-- Added `ATTRIBUTION.md` to record project provenance, attribution, and repository-maintainer boundaries.
+#### Version provenance
+
 - Added `VERSION` to record baseline version provenance and source references.
-- Rewrote the top-level `README.md` to describe the repository factually as an imported baseline.
-- Preserved the original top-level mirror README text at `docs/upstream/README.github-mirror-2016.md`.
+
+#### Documentation and audits
+
 - Added version-neutral Markdown documentation under `docs/` based on historical WANem upstream documents and verified source-tree behavior.
 - Added provenance notes, compatibility notes, environment assumptions, and legacy dependency notes.
+
+#### Baseline documentation
+
+- Documented the repository baseline prior to functional changes.
+- Rewrote the top-level `README.md` to describe the repository factually as an imported baseline.
+- Preserved the original top-level mirror README text at `docs/upstream/README.github-mirror-2016.md`.
 - Kept maintained documentation in Markdown form rather than retaining temporary PDF downloads as project documentation.
+
+#### License and attribution
+
+- Added a top-level `LICENSE` file with the GNU GPL v2 text.
+- Added `ATTRIBUTION.md` to record project provenance, attribution, and repository-maintainer boundaries.
