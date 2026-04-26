@@ -8,6 +8,7 @@ Related audits:
 
 - [Provenance audit](provenance-audit.md)
 - [Runtime assumptions audit](runtime-assumptions-audit.md)
+- [Runtime command inventory](runtime-command-inventory.md)
 - [Compatibility notes](../files/compatibility-notes.md)
 - [Legacy dependencies](../files/legacy-dependencies.md)
 
@@ -16,6 +17,8 @@ Related audits:
 | Title | Current behavior | Risk | Suggested next action | Type |
 |---|---|---|---|---|
 | Privileged web execution model | PHP builds shell commands that run through `sudo`; `etc/sudoers` grants `www-data` access to networking and helper commands | Command injection, privilege escalation, and unintended host networking changes | Threat-model command construction and run only in an isolated lab until reviewed | Decision |
+| Uploaded command replay | Restore flow copies an uploaded file to `/tmp/netemstate.txt` and can execute stored command text | Uploaded data can become shell commands | Disable or isolate restore testing until the state format is redesigned | Decision |
+| WANalyzer request command | WANalyzer result flow appends a request parameter to a sudo shell command | Request-controlled target text reaches shell execution | Validate target handling and avoid direct shell concatenation before exposure | Code |
 | Host networking mutation | `tc`, `iptables`, `brctl`, `ifconfig`, and `conntrack` are invoked against real interfaces | Can disrupt local or production network paths | Define a disposable VM/container lab topology before runtime testing | Decision |
 | Provenance uncertainty | Upstream/source baseline appears to be Beta 3.0.2; local 3.0.3 metadata is not verified as official upstream | Incorrect release claims or wrong comparison target | Obtain original upstream artifacts and checksums before stronger provenance claims | Documentation |
 | Hard-coded privileged paths | Scripts and PHP assume `/root`, `/var/www`, `/etc/apache2`, `/etc/php5`, and `/tmp` | Running outside the appliance layout may fail or modify unexpected locations | Inventory path usage and define expected runtime root filesystem | Documentation |
@@ -30,6 +33,7 @@ Related audits:
 | Apache/PHP coupling | Apache config and PHP 5 layout are committed as filesystem configuration | Modern images may use different PHP SAPI and config paths | Build a compatibility matrix before changing PHP or Apache | Test |
 | Network namespace assumptions | WANem expects visible host NICs and routes | Container network namespace may hide or virtualize needed interfaces | Prototype in a disposable namespace and document required capabilities | Test |
 | Persistent helper locations | PHP and sudoers reference `/root/disc_new_port_int` and `/root/wanalyzer` | Container paths and ownership may diverge | Decide whether to preserve paths or introduce configuration indirection | Code |
+| Shared `/tmp` command state | `/tmp/netemstate.txt` stores replayable command text and WANalyzer uses shared `/tmp` report/dump files | State collision or tampering can affect privileged execution | Replace with a private runtime state directory and structured state files | Code |
 | Auxiliary services | Webmin, netdata, ajaxterm, and desktop startup are referenced | Optional services can expand attack surface and packaging scope | Decide supported vs historical status for each auxiliary service | Decision |
 
 ## P2: Modernization Candidate
