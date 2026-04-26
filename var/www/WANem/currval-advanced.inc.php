@@ -1,4 +1,4 @@
-<?
+<?php
 /****************************************************************************/
 /*                              COPYRIGHT                                   */                 
 /****************************************************************************/
@@ -288,7 +288,7 @@ function get_current_values(&$interface, &$del, &$delJitter, &$delCorrelation, &
 		$port[$ruleSets-1]="any";
 		//$bandwidth[$ruleSets-1]="0";
 		$sym[$ruleSets-1]="Yes";
-		$_SESSION[addRuleSet]=true;
+		$_SESSION['addRuleSet']=true;
 	}
 
 	//Subtract one from $rulesets if the delete last rule set button was clicked

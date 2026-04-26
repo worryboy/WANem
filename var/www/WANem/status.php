@@ -1,4 +1,4 @@
-<?
+<?php
 /****************************************************************************/
 /*                              COPYRIGHT                                   */                 
 /****************************************************************************/
@@ -18,20 +18,20 @@ include("config.inc.php");
 <body>
 <form method="POST" action="status.php">
 	<p align="center"><b>WANem status</b></p>
-	<?
+	<?php
 	//Get interfaces
-	if  ($_POST[interfaceList]) {
-		echo '<input type="hidden" name="interfaces" value="' . $_POST[interfaceList] . '"/>';
+	if  ($_POST['interfaceList']) {
+		echo '<input type="hidden" name="interfaces" value="' . $_POST['interfaceList'] . '"/>';
 	} else {
-		echo '<input type="hidden" name="interfaces" value="' . $_POST[interfaces] . '"/>';
+		echo '<input type="hidden" name="interfaces" value="' . $_POST['interfaces'] . '"/>';
 	}
 
 	//Put interfaces into the $interfaces array
 	unset($interfaces);
-	if  ($_POST[interfaceList]) {
-		$tmpStr=$_POST[interfaceList];
+	if  ($_POST['interfaceList']) {
+		$tmpStr=$_POST['interfaceList'];
 	} else {
-		$tmpStr=$_POST[interfaces];
+		$tmpStr=$_POST['interfaces'];
 	}
 	$tmpStr2="";  //tmpStr2 will hold a single interface name
 	for ($i = 0; $i<=strlen($tmpStr); $i++) {
@@ -120,7 +120,7 @@ include("config.inc.php");
 	<p><input type="submit" value="Refresh" name="B1"></p>
 </form>
 
-<?
+<?php
 //***************************************************************************************
 //Function to find the netem rules which are currently running on a selected interface
 //and display them on screen.

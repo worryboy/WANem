@@ -1,4 +1,4 @@
-<?
+<?php
 /****************************************************************************/
 /*                              COPYRIGHT                                   */                 
 /****************************************************************************/
@@ -19,11 +19,11 @@ include_once("command.inc.php");
 include_once("validate.inc.php");
 
 //Check if an interface has been selected
-if ($_POST[selInt]) {
-	$_SESSION[selectedInterface] = $_POST[selInt];
+if ($_POST['selInt']) {
+	$_SESSION['selectedInterface'] = $_POST['selInt'];
 }
-if (!$_SESSION[selectedInterface]) {
-	$_SESSION[selectedInterface] = "";
+if (!$_SESSION['selectedInterface']) {
+	$_SESSION['selectedInterface'] = "";
 }
 
 ?>
@@ -69,12 +69,12 @@ table, tr, td {font-size: .85em;}
 
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-<?
+<?php
 
 //Add selected interface to $interfaces if no interfaces are there already
 //unset ($interfaces);
 if (count($interfaces==0)) {
-	$interfaces[]=$_SESSION[selectedInterface];
+	$interfaces[]=$_SESSION['selectedInterface'];
 }
 
 //If 'Apply settings' button was pressed then call the validation function, the reset_tc
@@ -124,28 +124,28 @@ if (isset($_POST['btnApply'])) {
 			if (isset($_POST['chkDisplay'])==false) {
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%">
-<?
+<?php
 				echo '<b>' . "WANem commands successfully created, all values set to zero" . '</b>';
 			}
 ?>
 	</div>
-<?
+<?php
 		} else {
 			if (isset($_POST['chkDisplay'])==false) {
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%">
-<?
+<?php
 				echo '<b>' . "WANem commands successfully created" . '</b>';
 			}
 ?>
 	</div>
-<?
+<?php
 		}
 	} else {
 		//Display error
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%">
-<?
+<?php
 		echo '<b>' . $errMsg . '</b>';
 		//Make sure the command display section is not shown by setting the $displayCmd
 		//variable to ""
@@ -153,7 +153,7 @@ if (isset($_POST['btnApply'])) {
 		unset($disc);
 ?>
 	</div>
-<?
+<?php
 	}
 }
 
@@ -167,11 +167,11 @@ if (isset($_POST['btnReset'])) {
 	}
 ?>
 <div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%">
-<?
+<?php
 	echo '<b>' . "All WANem values have been reset" . '</b>';
 ?>
 </div>
-<?
+<?php
 }
 
 //If the 'Stop WANtem' button was pressed then set then reset the commands
@@ -218,7 +218,7 @@ if (file_exists($onOffFile)) {
 		  </tr>
 		</table>
 		</div>
-<?
+<?php
 	} else {
 ?>
 		<div align=center style="color: #000000; background-color: #488ac7; border: thin solid #000000; width: 989px; margin:0 auto;">
@@ -230,7 +230,7 @@ if (file_exists($onOffFile)) {
 		  </tr>
 		</table>
 		</div>
-<?
+<?php
 	}
 }
 
@@ -251,9 +251,9 @@ if (isset($_POST['btnDelete'])) {
 	//print  "Corrupt equals $corrupt[0]"; 
 //Add the correct number of instances of the selected interface to the $interfaces array, always at least 1
 unset($interfaces);
-$interfaces[]=$_SESSION[selectedInterface];
+$interfaces[]=$_SESSION['selectedInterface'];
 for ($i=2; $i<=$ruleSets; ++$i) {
-	$interfaces[]=$_SESSION[selectedInterface];
+	$interfaces[]=$_SESSION['selectedInterface'];
 }
 
 //Display all interfaces that are currently in the $interfaces array so their netem settings
@@ -263,11 +263,11 @@ show_interfaces(0,$interfaces, $del, $delJitter, $delCorrelation, $delDistributi
 //Add the add and delete rule set buttons
 ?>
 	  <p align="center"><input type="submit" value="Add a rule set" name="btnAdd">
-<?
+<?php
 if (count($interfaces)>1) {
 ?>
 	  <input type="submit" value="Delete last rule set" name="btnDelete">
-<?
+<?php
 }
 ?>
 	  <input type="submit" value="Apply settings" name="btnApply">
@@ -276,7 +276,7 @@ if (count($interfaces)>1) {
 	  <input type="checkbox" name="chkDisplay" value="OFF">Display commands only, do not execute them
 	</form>
 	<form action="<?php echo 'status.php'; ?>" method="post" target="_blank">
-<?
+<?php
 	//Make a string with all interface names separated by a space to pass into the
 	//status page
 	find_bridges($bridgeName, $bridgeInts, 0);
@@ -287,7 +287,7 @@ if (count($interfaces)>1) {
 	}
 
 ?>
-	  <input type="hidden" name="interfaceList" value="<? echo $interfaceList; ?>">
+	  <input type="hidden" name="interfaceList" value="<?php echo $interfaceList; ?>">
 	  <p align="center"><input type="submit" value="Check current status" name="btnStatus"></p>
 	</form>
 </body>

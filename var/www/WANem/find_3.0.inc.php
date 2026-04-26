@@ -1,4 +1,4 @@
-<?
+<?php
 /****************************************************************************/
 /*                              COPYRIGHT				    */
 /****************************************************************************/
@@ -53,19 +53,19 @@ function find_bridges(&$bridgeName, &$bridgeInts, $showBridges)
 	}
 	//If a bridge has been selected by the user then show the name of the bridge
 	//and an 'Unselect bridge' button.
-	if ($_SESSION[bridgeSelected] != "" & $showBridges==1) {
+	if ($_SESSION['bridgeSelected'] != "" & $showBridges==1) {
 ?>
 		<div style="color: #000000; background-color: #0070C0; border: thin solid #000000; width: 966px; margin:0 auto;">
 		<table border="0" width="100%" align="center">
 		  <tr>
 			<td width="100%">
-			  <p align="center"><b>Selected bridge: <? echo $_SESSION[bridgeSelected]; ?></b>
+			  <p align="center"><b>Selected bridge: <?php echo $_SESSION['bridgeSelected']; ?></b>
 			  <input type="submit" value="Unselect bridge" name="btnUnselectBridge">
 			</td>
 		  </tr>
 		</table>
 		</div>
-<?
+<?php
 	} else {
 
 		//****If bridge(s) exist then generate html for a bridge selectbox****
@@ -76,7 +76,7 @@ function find_bridges(&$bridgeName, &$bridgeInts, $showBridges)
 		<div style="color: #000000; background-color: #0070C0; border: thin solid #000000; width: 966px; margin:0 auto;">
 		<table border="0" width="100%" align="center">
 		  <tr>
-<?
+<?php
 			//Create HTML for a select box within a table cell and add the last bridge to it
 			$selectHTML="\t\t\t" . '<td width="100%">'  . "\n\t\t\t  " . '<p align="center"><b>Bridges</b>' . "\n\t\t\t  " . '<select size="1" name="bridges">' . "\n\t\t\t\t" . '<option selected>' . $bridgeName[(count($bridgeName)-1)] . '</option>' . "\n";
 

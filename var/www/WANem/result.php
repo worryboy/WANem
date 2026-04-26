@@ -1,4 +1,4 @@
-<?
+<?php
 	include("config.inc.php")
 ?>
 
@@ -63,7 +63,7 @@ function callWANEM(obj) {
 				<input type = "button" name = "submit" value = "Start WAN Emulation"  onClick= "return callWANEM(this)";>
 				</form>
 				</center>
-<?
+<?php
                         }
                   } 
 ?>

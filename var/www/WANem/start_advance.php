@@ -1,4 +1,4 @@
-<?
+<?php
 // ---------------------------------------------------------------
 // PHPnetemGUI
 //
@@ -91,7 +91,7 @@ find_interfaces($interfaces, $bridgeName, $bridgeInts);
 			  <p><font size="4">Enter advanced mode</font><br><font size="4"> </font><font size="2">(You
 			  can enter more than one set of rules per interface but you can
 			  only edit one interface at a time)</font></p><br>
-<?
+<?php
 				//echo count($interfaces);	
 				if (count($interfaces)<=2) {
 ?>				
@@ -106,7 +106,7 @@ find_interfaces($interfaces, $bridgeName, $bridgeInts);
 				</font></p>
 				</td></tr></table>
 				</div>
-<?
+<?php
 				}				
 				//Create the advanced mode interface select box.
 				$selectHTML="\t\t\t  " . '<p><select size="1" name="selInt">' . "\n\t\t\t\t" . '<option selected>' . $interfaces[0] . '</option>' . "\n";

@@ -1,4 +1,4 @@
-<?
+<?php
 /****************************************************************************/
 /*                              COPYRIGHT                                   */                 
 /****************************************************************************/
@@ -21,15 +21,15 @@ include_once("validate.inc.php");
 
 //Check for select/unselect bridge button presses
 //Store the selected bridge status in memory using a session variable.
-if ($_POST[btnSelectBridge]) {
-	$_SESSION[bridgeSelected] = $_POST[bridges];
+if ($_POST['btnSelectBridge']) {
+	$_SESSION['bridgeSelected'] = $_POST['bridges'];
 } else {
-	if ($_POST[btnUnselectBridge]) {
-		$_SESSION[bridgeSelected] = "";
+	if ($_POST['btnUnselectBridge']) {
+		$_SESSION['bridgeSelected'] = "";
 	}
 }
-if (!$_SESSION[bridgeSelected]) {
-	$_SESSION[bridgeSelected] = "";
+if (!$_SESSION['bridgeSelected']) {
+	$_SESSION['bridgeSelected'] = "";
 }
 //Set $showButton to true, this is used to say whether the apply settings button is shown on index-basic.php
 $showButton=true;
@@ -45,7 +45,7 @@ $showButton=true;
 <body bgcolor="white">
 <br>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-<?
+<?php
 
 //Call the function to check if one or more bridges are present on the machine.  If
 //there are then create and display a bridge select box.
@@ -53,12 +53,12 @@ find_bridges($bridgeName, $bridgeInts, 1);
 
 //If a bridge has been selected then just get the interfaces used by the bridge into the
 //$interfaces array.  Otherwise get all valid non-bridge interfaces that are currently in use.
-if ($_SESSION[bridgeSelected]=="") {
+if ($_SESSION['bridgeSelected']=="") {
 	find_interfaces($interfaces, $bridgeName, $bridgeInts);
 } else {
-	//Loop through bridge name array and look for a match against $_SESSION[bridgeSelected]
+	//Loop through bridge name array and look for a match against $_SESSION['bridgeSelected']
 	for ($i=0; $i<=count($bridgeName);++$i) {
-		if ($_SESSION[bridgeSelected]==$bridgeName[$i]) {
+		if ($_SESSION['bridgeSelected']==$bridgeName[$i]) {
 			//Check for a blank space in $bridgeInts[$i]. If there's no blank space then
 			//get the interface names.
 			if ($bridgeInts[$i]!=" ") {
@@ -100,9 +100,9 @@ if (isset($_POST['btnApply'])) {
 	//First store the unmodified $interfaces array
 	$interfacesTemp=$interfaces;
 	
-	If (!empty($_SESSION[ignoreInts])) {
+	If (!empty($_SESSION['ignoreInts'])) {
 		for ($i=0; $i<count($interfaces); ++$i) {
-			if ($_SESSION[ignoreInts][$i]==1) {
+			if ($_SESSION['ignoreInts'][$i]==1) {
 			$interfaces[$i]="";
 			}
 		}
@@ -149,35 +149,35 @@ if (isset($_POST['btnApply'])) {
 			if (isset($_POST['chkDisplay'])==false) {
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%; height: 20">
-<?
+<?php
 				echo '<b>' . "WANem commands successfully created, all values set to zero" . '</b>';
 			}
 ?>
 	</div>
-<?
+<?php
 		} else {
 			if (isset($_POST['chkDisplay'])==false) {
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%; height: 20">
-<?
+<?php
 				echo '<b>' . "WANem commands successfully created" . '</b>';
 			}
 ?>
 	</div>
-<?
+<?php
 		}
 	} else {
 		//Display error
 ?>
 	<div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%; height: 20">
-<?
+<?php
 		echo '<b>' . $errMsg . '</b>';
 		//Make sure the command display section is not shown by setting the $displayCmd
 		//variable to ""
 		$displayCmd="";
 ?>
 	</div>
-<?
+<?php
 	}
 	//Restore the original $interfaces array
 	$interfaces=$interfacesTemp;
@@ -193,11 +193,11 @@ if (isset($_POST['btnReset'])) {
 	}
 ?>
 <div align="center": style="color: #000000; background-color: #9999ff; border: thin solid #000044; width: 100%; height: 20">
-<?
+<?php
 	echo '<b>' . "All WANem values have been reset" . '</b>';
 ?>
 </div>
-<?
+<?php
 }
 
 //If the 'Stop netem' button was pressed then set then reset the commands
@@ -244,7 +244,7 @@ if (file_exists($onOffFile)) {
 		  </tr>
 		</table>
 		</div>
-<?
+<?php
 	} else {
 ?>
 		<div align=center : style="color: #000000; background-color: #0070C0; border: thin solid #000000; width: 966px; margin:0 auto;">
@@ -256,7 +256,7 @@ if (file_exists($onOffFile)) {
 		  </tr>
 		</table>
 		</div>
-<?
+<?php
 	}
 }
 
@@ -264,7 +264,7 @@ if (file_exists($onOffFile)) {
 //e.g. $del[1 - 2] lossCorrelation[1 - 2].
 get_current_values($interfaces, $del, $delJitter, $delCorrelation, $delDistribution, $loss, $lossCorrelation, $dup, $dupCorrelation, $reorder, $reorderCorrelation, $gap, $bandwidth, $corrupt,  $sym, $disc, $limit, $msFound, $src, $srcSub, $dest, $destSub, $port, $advanced);
 //Turn $advanced into a session variable to it can be read further back in the program on this page.
-$_SESSION[ignoreInts]=$advanced;
+$_SESSION['ignoreInts']=$advanced;
 
 //Display all interfaces that are currently in the $interfaces array so their netem settings
 //can be edited
@@ -273,24 +273,24 @@ show_interfaces(1,$interfaces, $del, $delJitter, $delCorrelation, $delDistributi
 
 ?>
 <!--	  <p align="left"><a href="index.php">&lt Return to index page</a> -->
-<?
+<?php
 	  if ($showButton==true) {
 ?>
 	  <p align="center"><input type="submit" value="Apply settings" name="btnApply">
 	  <input type="submit" value="Reset settings" name="btnReset">
 	  <input type="submit" value="Refresh settings" name="btnRefresh"></br>
-<?
+<?php
 	  } else {
 ?>
 	  <p align="center"><input type="submit" value="Reset settings" name="btnReset">
 	  <input type="submit" value="Refresh settings" name="btnRefresh"></br>
-<?
+<?php
    }
 ?>
 	  <input type="checkbox" name="chkDisplay" value="OFF">Display commands only, do not execute them
 	</form>
 	<form action="<?php echo 'status.php'; ?>" method="post" target="_blank">
-<?
+<?php
 	//Make a string with all interface names separated by a space to pass into the
 	//status page
 	$interfaceList="";
@@ -298,11 +298,11 @@ show_interfaces(1,$interfaces, $del, $delJitter, $delCorrelation, $delDistributi
 		$interfaceList=$interfaceList . $interfaces[$i] . " ";
 	}
 ?>
-	  <input type="hidden" name="interfaceList" value="<? echo $interfaceList; ?>">
+	  <input type="hidden" name="interfaceList" value="<?php echo $interfaceList; ?>">
 	  <p align="center"><input type="submit" value="Check current status" name="btnStatus"></p>
 	</form>
 <!--
-//<?
+//<?php
 	//echo count($interfaces);	
 //	if (count($interfaces)<=2) {
 //?>				
@@ -317,7 +317,7 @@ show_interfaces(1,$interfaces, $del, $delJitter, $delCorrelation, $delDistributi
 	</font></p>
 	</td></tr></table>
 	</div>
-//<?
+//<?php
 //	}				
 //?>
 -->
