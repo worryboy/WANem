@@ -9,6 +9,8 @@ Related audits:
 - [Provenance audit](provenance-audit.md)
 - [Runtime assumptions audit](runtime-assumptions-audit.md)
 - [Runtime command inventory](runtime-command-inventory.md)
+- [SourceForge 2022 DockerFiles analysis](sourceforge-dockerfiles-2022-analysis.md)
+- [Deployment strategy](deployment-strategy.md)
 - [Compatibility notes](../files/compatibility-notes.md)
 - [Legacy dependencies](../files/legacy-dependencies.md)
 
@@ -20,6 +22,7 @@ Related audits:
 | Uploaded command replay | Restore flow copies an uploaded file to `/tmp/netemstate.txt` and can execute stored command text | Uploaded data can become shell commands | Disable or isolate restore testing until the state format is redesigned | Decision |
 | WANalyzer request command | WANalyzer result flow appends a request parameter to a sudo shell command | Request-controlled target text reaches shell execution | Validate target handling and avoid direct shell concatenation before exposure | Code |
 | Host networking mutation | `tc`, `iptables`, `brctl`, `ifconfig`, and `conntrack` are invoked against real interfaces | Can disrupt local or production network paths | Define a disposable VM/container lab topology before runtime testing | Decision |
+| Deployment mode boundaries | SourceForge 2022 DockerFiles artifacts contain payload files but no Dockerfile, compose file, package list, capabilities, or entrypoint | Docker expectations can be inferred incorrectly from incomplete artifacts | Define appliance, native Linux, and Docker lab tracks before packaging work | Decision |
 | Provenance uncertainty | Upstream/source baseline appears to be Beta 3.0.2; local 3.0.3 metadata is not verified as official upstream | Incorrect release claims or wrong comparison target | Obtain original upstream artifacts and checksums before stronger provenance claims | Documentation |
 | Hard-coded privileged paths | Scripts and PHP assume `/root`, `/var/www`, `/etc/apache2`, `/etc/php5`, and `/tmp` | Running outside the appliance layout may fail or modify unexpected locations | Inventory path usage and define expected runtime root filesystem | Documentation |
 | Interface selection safety | Legacy `eth0` assumptions coexist with broad interface discovery | Wrong interface could be shaped, bridged, or NATed | Add a manual verification checklist before applying rules | Test |
@@ -34,6 +37,8 @@ Related audits:
 | Network namespace assumptions | WANem expects visible host NICs and routes | Container network namespace may hide or virtualize needed interfaces | Prototype in a disposable namespace and document required capabilities | Test |
 | Persistent helper locations | PHP and sudoers reference `/root/disc_new_port_int` and `/root/wanalyzer` | Container paths and ownership may diverge | Decide whether to preserve paths or introduce configuration indirection | Code |
 | Shared `/tmp` command state | `/tmp/netemstate.txt` stores replayable command text and WANalyzer uses shared `/tmp` report/dump files | State collision or tampering can affect privileged execution | Replace with a private runtime state directory and structured state files | Code |
+| SourceForge 2022 PHP compatibility edits | The 2022 web artifact includes `<?php`, quoted superglobal keys, `count((array)...)`, and pass-by-reference call adaptations | Useful compatibility changes are mixed with UI/runtime changes and need careful review | Split into a future PHP compatibility patch review before integration | Code |
+| Container privilege model | Docker-related artifacts do not specify `NET_ADMIN`, privileged mode, host networking, or namespace setup | A container build could appear to work while mutating the wrong namespace or lacking required capabilities | Design a Docker lab topology and capability matrix before writing packaging files | Decision |
 | Auxiliary services | Webmin, netdata, ajaxterm, and desktop startup are referenced | Optional services can expand attack surface and packaging scope | Decide supported vs historical status for each auxiliary service | Decision |
 
 ## P2: Modernization Candidate
@@ -46,6 +51,7 @@ Related audits:
 | PHP runtime compatibility | PHP files come from a PHP 5 era codebase | Newer PHP may surface syntax warnings or fatal behavior changes | Run static checks and runtime smoke tests under chosen PHP versions | Test |
 | Configuration centralization | Command paths live in `config.inc.php`, scripts, and sudoers | Drift between config, docs, and runtime image | Create a single documented runtime configuration inventory | Documentation |
 | WANalyzer validation | WANalyzer scripts exist and call tc on `eth0` | Tool may not work or may affect wrong interface | Add isolated runtime tests for WANalyzer before declaring support | Test |
+| Ntopng artifact review | The 2022 web artifact adds `ntopng.php`, which shells out to discover an `ntopng` host and redirects to port 3000 | Adds another shell execution path and optional service dependency | Keep as provenance until monitoring scope is decided | Decision |
 
 ## P3: Historical Or Optional
 

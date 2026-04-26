@@ -20,6 +20,8 @@ The current documentation set is version-neutral by design. Historical WANem PDF
 - [Provenance audit](analysis/provenance-audit.md)
 - [Runtime assumptions audit](analysis/runtime-assumptions-audit.md)
 - [Runtime command inventory](analysis/runtime-command-inventory.md)
+- [SourceForge 2022 DockerFiles analysis](analysis/sourceforge-dockerfiles-2022-analysis.md)
+- [Deployment strategy](analysis/deployment-strategy.md)
 - [Modernization backlog](analysis/modernization-backlog.md)
 
 ## Notes

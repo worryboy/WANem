@@ -14,6 +14,7 @@ These upstream notes are preserved as evidence and are not rewritten here as a v
 
 ### 2026-04-26
 
+- Analyzed SourceForge 2022 Docker-related WANem artifacts and documented deployment strategy.
 - Added runtime command and hard-coded path inventory.
 - Added provenance audit, runtime assumptions audit, and modernization backlog.
 - Clarified in audit documentation that WANem 3.0.3 is a local repository version derived from the WANem Beta 3.0.2 baseline, unless later upstream evidence proves otherwise.
