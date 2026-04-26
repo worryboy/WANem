@@ -1,6 +1,6 @@
-# WANem Beta 3.0.3 Baseline
+# WANem Local 3.0.3 Maintenance Baseline
 
-This repository contains a local source baseline for WANem, the Wide Area Network Emulator. The tree appears to be based on the WANem Beta 3.0.3 material referenced by the existing mirror README and is being prepared as a documentation and attribution baseline before any functional changes are made.
+This repository contains a local source baseline for WANem, the Wide Area Network Emulator. The tree appears to be derived from an upstream WANem Beta 3.0.2 baseline, with local repository metadata identifying the maintained tree as WANem 3.0.3. The local 3.0.3 marker should not be treated as a verified official upstream WANem release unless later upstream evidence proves otherwise.
 
 ## Background
 
@@ -9,23 +9,27 @@ WANem is an open source WAN emulation environment originally published through t
 - Original project name: WANem / Wide Area Network Emulator
 - Original project URL: http://wanem.sourceforge.net/
 - GitHub reference repository: https://github.com/worryboy/WANem
-- Upstream baseline referenced in this repository: WANem Beta 3.0.3
+- Upstream/source baseline: WANem Beta 3.0.2
+- Local repository version: WANem 3.0.3
+- Local version provenance: maintainer metadata derived from the 3.0.2 baseline; not verified as an official upstream release
 
 The original mirror README text that was present at the repository root has been preserved at [docs/upstream/README.github-mirror-2016.md](docs/upstream/README.github-mirror-2016.md).
 
 ## Repository Purpose
 
-This repository is being used as a continuation and modernization baseline for WANem Beta 3.0.3. The current phase is limited to repository analysis, documentation cleanup, license clarity, attribution preservation, and version baseline recording.
+This repository is being used as a continuation and modernization baseline for a local WANem 3.0.3 maintenance tree derived from the WANem Beta 3.0.2 source baseline. The current phase is limited to repository analysis, documentation cleanup, license clarity, attribution preservation, and version baseline recording.
 
 Functional modernization, dependency updates, and behavioral changes are intentionally deferred to later commits.
 
-## Baseline Version
+## Version Provenance
 
-The strongest version marker in this tree is the original top-level README note:
+The preserved mirror README note says:
 
 - `Update 2016.08.23 : WANem Beta 3.0.3. >> These files are corrected for the depedency on a debian 8 environment based on Beta 3.0.2.`
 
-Other in-tree materials still reference older labels such as `WANem v3.0`, so the Beta 3.0.3 baseline should be treated as the imported repository baseline, with some historical UI text and documentation still reflecting earlier version wording.
+That line is treated here as local repository or mirror metadata, not as proof of an official upstream WANem Beta 3.0.3 release. Because the same line explicitly says the files are based on Beta 3.0.2, the documented upstream/source baseline is WANem Beta 3.0.2, while WANem 3.0.3 is this repository's local maintenance version.
+
+Other in-tree materials still reference older labels such as `WANem v3.0`, so version-specific references should be read as historical or local repository context unless supported by original upstream release artifacts.
 
 ## Repository Status
 
@@ -74,5 +78,5 @@ Maintained repository documentation now lives under [docs/README.md](docs/README
 
 ## Notes To Be Verified
 
-- Whether every file in this tree came directly from a single upstream WANem Beta 3.0.3 release package, or from a later community-maintained mirror import
-- Whether the embedded `WANem v3.0` UI labels were intentionally left unchanged in the Beta 3.0.3 materials
+- Whether every file in this tree came directly from a single upstream WANem Beta 3.0.2 release package, or from a later community-maintained mirror import
+- Whether the embedded `WANem v3.0` UI labels were intentionally left unchanged in the upstream baseline or added to later local mirror metadata

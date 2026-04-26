@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document describes the setup assumptions that can be verified from the current WANem Beta 3.0.3 source tree, plus a small number of historical setup notes preserved as legacy references.
+This document describes the setup assumptions that can be verified from the current repository tree, plus a small number of historical setup notes preserved as legacy references.
 
 ## Current Baseline Summary
 
@@ -45,12 +45,12 @@ Verified from the current tree:
 - Apache is configured to serve `/var/www`, where `var/www/WANem/` contains the WANem UI.
 - The repository includes Apache and PHP configuration fragments, but no modern install script or package manifest was found.
 
-Historical source material, not verified as current Beta 3.0.3 packaging behavior:
+Historical source material, not verified as current repository packaging behavior:
 
 - The WANem 1.1 setup guide described WANem as a bootable Knoppix CD image with no installation step beyond booting the media.
 - That same guide described initial NIC setup through a console-driven reset flow and browser access at `http://<wanemip>/WANem`.
 
-Those appliance-distribution details should be treated as legacy unless reconfirmed from a matching Beta 3.0.3 image.
+Those appliance-distribution details should be treated as legacy unless reconfirmed from matching upstream release artifacts.
 
 ## Network And Interface Assumptions
 
@@ -86,7 +86,7 @@ Verified from the current tree:
 
 Not verified as fully functional in this repository alone:
 
-- Whether `ajaxterm`, `netdata`, and `webmin` were present in the original Beta 3.0.3 runtime image
+- Whether `ajaxterm`, `netdata`, and `webmin` were present in the original upstream runtime image
 - Whether the current Apache SSL proxy configuration was part of upstream WANem or a later environment adaptation
 
 ## Configuration Files And Scripts

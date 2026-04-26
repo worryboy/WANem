@@ -2,7 +2,7 @@
 
 ## Scope
 
-This guide combines historically documented WANem issues with checks that can be verified from the current WANem Beta 3.0.3 source tree. Historical advice is retained only where it still maps cleanly to the current repository or is clearly marked as legacy.
+This guide combines historically documented WANem issues with checks that can be verified from the current repository tree. Historical advice is retained only where it still maps cleanly to the current repository or is clearly marked as legacy.
 
 ## GUI Does Not Load Or Loads Very Slowly
 

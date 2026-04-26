@@ -6,7 +6,10 @@
 - Original SourceForge project URL: https://sourceforge.net/projects/wanem/
 - Original project website URL: https://wanem.sourceforge.net/
 - GitHub mirror reference already used in repository docs: https://github.com/worryboy/WANem
-- Current local baseline: WANem Beta 3.0.3
+- Upstream/source baseline: WANem Beta 3.0.2
+- Local repository version: WANem 3.0.3
+- Local version provenance: maintainer metadata derived from the 3.0.2 baseline
+- Verification status: official upstream WANem 3.0.3 release not verified
 
 ## Historical PDF Sources Used As Input Material
 
@@ -56,13 +59,14 @@ Successfully extracted temporary or in-tree source files:
 The maintained Markdown files were produced by:
 
 - extracting text from the historical PDFs where extraction succeeded
-- comparing historical instructions to the current local WANem Beta 3.0.3 tree
+- comparing historical instructions to the current repository tree
 - keeping only source-tree-confirmed instructions as current guidance
 - moving uncertain, legacy, or conflicting material into compatibility and provenance notes
 
 ## Observed Differences Between Historical Material And The Local Tree
 
-- The local tree identifies itself most strongly as `WANem Beta 3.0.3` in the preserved mirror README, while many UI files still say `WANem v3.0`.
+- The preserved mirror README includes a `WANem Beta 3.0.3` marker, but the same note says the files are based on `Beta 3.0.2`; this repository treats 3.0.3 as local maintenance metadata unless upstream release evidence is found.
+- Many UI files still say `WANem v3.0`, so version labels in the tree are not fully uniform.
 - The historical 1.1 setup guide describes a Knoppix bootable CD distribution, while this repository is a source tree with Apache, PHP, and shell assets.
 - The historical setup guide says save/restore is planned for a later release; the current tree already contains `save-restore.php`, `download.php`, and `upload.php`.
 - NAT support described in the historical 2.0 conceptual document is reflected in the current console shell via `nat add`, `nat del`, and `nat show`.
@@ -70,7 +74,8 @@ The maintained Markdown files were produced by:
 
 ## Limitations
 
-- A full byte-for-byte provenance comparison against an original WANem Beta 3.0.3 ISO or release tarball is still pending.
+- A full byte-for-byte provenance comparison against original upstream WANem Beta 3.0.2 release artifacts, such as an ISO, tarball, or checksum, is still pending.
+- Any original upstream WANem 3.0.3 release artifact remains unverified; 3.0.3 references in maintained documentation are local repository metadata unless later evidence proves otherwise.
 - The GitHub mirror was referenced as a known related repository, but no line-by-line divergence study was completed in this documentation pass.
 - The historical user guide PDF could not be fully extracted during this run, so any information unique to that document still needs manual follow-up.
 

@@ -12,12 +12,19 @@ These upstream notes are preserved as evidence and are not rewritten here as a v
 
 ## Repository Changes
 
+### 2026-04-26
+
+- Corrected version provenance wording across maintained documentation.
+- Clarified that the upstream/source baseline appears to be WANem Beta 3.0.2.
+- Clarified that WANem 3.0.3 is this repository's local maintenance version derived from the 3.0.2 baseline.
+- Removed maintained-documentation wording that implied an official upstream WANem 3.0.3 release.
+
 ### 2026-04-25
 
-- Documented the repository as a WANem Beta 3.0.3 baseline prior to functional changes.
+- Documented the repository baseline prior to functional changes.
 - Added a top-level `LICENSE` file with the GNU GPL v2 text.
 - Added `ATTRIBUTION.md` to record project provenance, attribution, and repository-maintainer boundaries.
-- Added `VERSION` to record the imported baseline version and source references.
+- Added `VERSION` to record baseline version provenance and source references.
 - Rewrote the top-level `README.md` to describe the repository factually as an imported baseline.
 - Preserved the original top-level mirror README text at `docs/upstream/README.github-mirror-2016.md`.
 - Added version-neutral Markdown documentation under `docs/` based on historical WANem upstream documents and verified source-tree behavior.

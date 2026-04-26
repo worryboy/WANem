@@ -6,11 +6,13 @@
 - Original project URL: http://wanem.sourceforge.net/
 - GitHub reference repository: https://github.com/worryboy/WANem
 - Original license: GNU General Public License version 2.0
-- Current imported version baseline: WANem Beta 3.0.3
+- Upstream/source baseline: WANem Beta 3.0.2
+- Local repository version: WANem 3.0.3
+- Local version provenance: maintainer metadata; official upstream 3.0.3 release not verified
 
 ## Repository Role
 
-This repository is being prepared as a continuation, fork, and modernization baseline for the WANem Beta 3.0.3 source tree currently present here. At this stage, the repository has been cleaned up for documentation, attribution, and version traceability only.
+This repository is being prepared as a continuation, fork, and modernization baseline for the local WANem 3.0.3 maintenance tree currently present here, derived from the WANem Beta 3.0.2 source baseline. At this stage, the repository has been cleaned up for documentation, attribution, and version traceability only.
 
 No claim of ownership is made over the original WANem code. Original copyright notices, author references, and license notices are retained.
 

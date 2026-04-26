@@ -2,7 +2,7 @@
 
 This repository keeps maintained project documentation in Markdown under `docs/files/`.
 
-The current documentation set is version-neutral by design. Historical WANem PDFs were used as source material, but the maintained files in this repository are intended to describe the current local baseline around WANem Beta 3.0.3 without presenting older WANem 1.1 or 2.0 documents as current release documentation.
+The current documentation set is version-neutral by design. Historical WANem PDFs were used as source material, but the maintained files in this repository are intended to describe the current repository tree without presenting older WANem 1.1 or 2.0 documents as current release documentation.
 
 ## Maintained Documents
 
@@ -22,4 +22,5 @@ The current documentation set is version-neutral by design. Historical WANem PDF
 
 - Final maintained documentation is Markdown only.
 - Historical PDFs are treated as input material and provenance sources, not as maintained project documentation.
-- Content that could not be verified against the local WANem Beta 3.0.3 tree is marked accordingly.
+- Content that could not be verified against the current repository tree is marked accordingly.
+- Upstream/source baseline is documented as WANem Beta 3.0.2; WANem 3.0.3 is local repository maintenance metadata, not a verified official upstream release.
