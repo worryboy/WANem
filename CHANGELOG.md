@@ -4,7 +4,7 @@ This changelog distinguishes between historical upstream notes found in the impo
 
 ## Historical Upstream Notes Found In Tree
 
-- `docs/upstream/README.github-mirror-2016.md` states: `Update 2016.08.23 : WANem Beta 3.0.3. >> These files are corrected for the depedency on a debian 8 environment based on Beta 3.0.2.`
+- `docs/upstream/README.github-mirror-2016.md` states: `Update 2016.08.23 : WANem Beta 3.0.3. >> These files are corrected for the depedency [sic] on a debian 8 environment based on Beta 3.0.2.`
 - `var/www/WANem/About.txt` and `var/www/WANem/about.html` still identify the UI as `WANem v3.0`.
 - `var/www/WANem/CopyrightInformation.txt` documents WANem as a TCS modification of PHPnetemGUI and references GPL distribution terms.
 
